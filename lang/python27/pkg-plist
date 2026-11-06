@@ -1792,16 +1792,19 @@ lib/python2.7/lib-dynload/_curses_panel.so
 lib/python2.7/lib-dynload/_curses.so
 lib/python2.7/lib-dynload/_elementtree.so
 lib/python2.7/lib-dynload/_functools.so
-lib/python2.7/lib-dynload/_hashlib.so
 lib/python2.7/lib-dynload/_heapq.so
 lib/python2.7/lib-dynload/_hotshot.so
 lib/python2.7/lib-dynload/_io.so
 lib/python2.7/lib-dynload/_json.so
 lib/python2.7/lib-dynload/_locale.so
 lib/python2.7/lib-dynload/_lsprof.so
+lib/python2.7/lib-dynload/_md5.so
 lib/python2.7/lib-dynload/_multibytecodec.so
 lib/python2.7/lib-dynload/_multiprocessing.so
 lib/python2.7/lib-dynload/_random.so
+lib/python2.7/lib-dynload/_sha.so
+lib/python2.7/lib-dynload/_sha256.so
+lib/python2.7/lib-dynload/_sha512.so
 lib/python2.7/lib-dynload/_socket.so
 lib/python2.7/lib-dynload/_sqlite3.so
 lib/python2.7/lib-dynload/_ssl.so
@@ -1822,7 +1825,6 @@ lib/python2.7/lib-dynload/fcntl.so
 lib/python2.7/lib-dynload/future_builtins.so
 lib/python2.7/lib-dynload/grp.so
 lib/python2.7/lib-dynload/itertools.so
-lib/python2.7/lib-dynload/math.so
 lib/python2.7/lib-dynload/mmap.so
 lib/python2.7/lib-dynload/nis_failed.so
 lib/python2.7/lib-dynload/operator.so
@@ -2252,10 +2254,10 @@ lib/python2.7/pipes.pyo
 lib/python2.7/pkgutil.py
 lib/python2.7/pkgutil.pyc
 lib/python2.7/pkgutil.pyo
-lib/python2.7/plat-freebsd12/IN.py
-lib/python2.7/plat-freebsd12/IN.pyc
-lib/python2.7/plat-freebsd12/IN.pyo
-lib/python2.7/plat-freebsd12/regen
+lib/python2.7/plat-freebsd14/IN.py
+lib/python2.7/plat-freebsd14/IN.pyc
+lib/python2.7/plat-freebsd14/IN.pyo
+lib/python2.7/plat-freebsd14/regen
 lib/python2.7/platform.py
 lib/python2.7/platform.pyc
 lib/python2.7/platform.pyo
@@ -4358,6 +4360,7 @@ man/man1/python.1.gz
 man/man1/python2.1.gz
 man/man1/python2.7.1.gz
 @dir include/python2.7
+@dir lib/pkgconfig
 @dir lib/python2.7/compiler
 @dir lib/python2.7/config
 @dir lib/python2.7/ctypes/macholib
@@ -4392,7 +4395,7 @@ man/man1/python2.7.1.gz
 @dir lib/python2.7/logging
 @dir lib/python2.7/multiprocessing/dummy
 @dir lib/python2.7/multiprocessing
-@dir lib/python2.7/plat-freebsd12
+@dir lib/python2.7/plat-freebsd14
 @dir lib/python2.7/pydoc_data
 @dir lib/python2.7/site-packages
 @dir lib/python2.7/sqlite3/test
