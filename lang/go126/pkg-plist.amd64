@@ -48,6 +48,7 @@ lib/go/doc/initial/6-stdlib/99-minor/README
 lib/go/doc/initial/7-ports.md
 lib/go/doc/README.md
 lib/go/go.env
+lib/go/lib/fips140/certified.txt
 lib/go/lib/fips140/fips140.sum
 lib/go/lib/fips140/inprocess.txt
 lib/go/lib/fips140/Makefile
@@ -930,6 +931,7 @@ lib/go/src/cmd/compile/internal/loopvar/testdata/opt-121.go
 lib/go/src/cmd/compile/internal/loopvar/testdata/opt-122.go
 lib/go/src/cmd/compile/internal/loopvar/testdata/opt.go
 lib/go/src/cmd/compile/internal/loopvar/testdata/range_esc_address.go
+lib/go/src/cmd/compile/internal/loopvar/testdata/range_esc_closure_linedir.go
 lib/go/src/cmd/compile/internal/loopvar/testdata/range_esc_closure.go
 lib/go/src/cmd/compile/internal/loopvar/testdata/range_esc_method.go
 lib/go/src/cmd/compile/internal/loopvar/testdata/range_esc_minimal_closure.go
@@ -1757,6 +1759,7 @@ lib/go/src/cmd/go/internal/modfetch/codehost/svn.go
 lib/go/src/cmd/go/internal/modfetch/codehost/vcs.go
 lib/go/src/cmd/go/internal/modfetch/coderepo_test.go
 lib/go/src/cmd/go/internal/modfetch/coderepo.go
+lib/go/src/cmd/go/internal/modfetch/fetch_test.go
 lib/go/src/cmd/go/internal/modfetch/fetch.go
 lib/go/src/cmd/go/internal/modfetch/key.go
 lib/go/src/cmd/go/internal/modfetch/proxy.go
@@ -1924,6 +1927,7 @@ lib/go/src/cmd/go/testdata/mod/example.com_fuzzfail_v0.1.0.txt
 lib/go/src/cmd/go/testdata/mod/example.com_fuzzfail_v0.2.0.txt
 lib/go/src/cmd/go/testdata/mod/example.com_generics_v1.0.0.txt
 lib/go/src/cmd/go/testdata/mod/example.com_ignore_v1.0.0.txt
+lib/go/src/cmd/go/testdata/mod/example.com_importcrypto_v1.0.0.txt
 lib/go/src/cmd/go/testdata/mod/example.com_incompatiblewithsub_v1.0.0.txt
 lib/go/src/cmd/go/testdata/mod/example.com_incompatiblewithsub_v2.0.0+incompatible.txt
 lib/go/src/cmd/go/testdata/mod/example.com_invalidpath_v1_v1.0.0.txt
@@ -2284,6 +2288,7 @@ lib/go/src/cmd/go/testdata/script/cover_runs.txt
 lib/go/src/cmd/go/testdata/script/cover_single_vs_multiple.txt
 lib/go/src/cmd/go/testdata/script/cover_statements.txt
 lib/go/src/cmd/go/testdata/script/cover_swig.txt
+lib/go/src/cmd/go/testdata/script/cover_switch_toolchain.txt
 lib/go/src/cmd/go/testdata/script/cover_sync_atomic_import.txt
 lib/go/src/cmd/go/testdata/script/cover_test_localpkg_filepath.txt
 lib/go/src/cmd/go/testdata/script/cover_test_pkgselect.txt
@@ -2310,7 +2315,9 @@ lib/go/src/cmd/go/testdata/script/env_unset.txt
 lib/go/src/cmd/go/testdata/script/env_write.txt
 lib/go/src/cmd/go/testdata/script/fileline.txt
 lib/go/src/cmd/go/testdata/script/fips.txt
+lib/go/src/cmd/go/testdata/script/fipssnap_modcache.txt
 lib/go/src/cmd/go/testdata/script/fipssnap.txt
+lib/go/src/cmd/go/testdata/script/fix_diff_exitcode.txt
 lib/go/src/cmd/go/testdata/script/fix_suite.txt
 lib/go/src/cmd/go/testdata/script/fix_vendor.txt
 lib/go/src/cmd/go/testdata/script/fmt_load_errors.txt
@@ -2356,6 +2363,7 @@ lib/go/src/cmd/go/testdata/script/gotoolchain_loop.txt
 lib/go/src/cmd/go/testdata/script/gotoolchain_modcmds.txt
 lib/go/src/cmd/go/testdata/script/gotoolchain_net.txt
 lib/go/src/cmd/go/testdata/script/gotoolchain_path.txt
+lib/go/src/cmd/go/testdata/script/gotoolchain_switch_gosum.txt
 lib/go/src/cmd/go/testdata/script/gotoolchain_version.txt
 lib/go/src/cmd/go/testdata/script/govcs.txt
 lib/go/src/cmd/go/testdata/script/help.txt
@@ -2498,6 +2506,7 @@ lib/go/src/cmd/go/testdata/script/mod_download_private_vcs.txt
 lib/go/src/cmd/go/testdata/script/mod_download_replace_file.txt
 lib/go/src/cmd/go/testdata/script/mod_download_svn.txt
 lib/go/src/cmd/go/testdata/script/mod_download_too_many_redirects.txt
+lib/go/src/cmd/go/testdata/script/mod_download_toolchain_gosum.txt
 lib/go/src/cmd/go/testdata/script/mod_download.txt
 lib/go/src/cmd/go/testdata/script/mod_e.txt
 lib/go/src/cmd/go/testdata/script/mod_edit_go.txt
@@ -2533,6 +2542,7 @@ lib/go/src/cmd/go/testdata/script/mod_get_errors.txt
 lib/go/src/cmd/go/testdata/script/mod_get_exec_toolchain.txt
 lib/go/src/cmd/go/testdata/script/mod_get_extra.txt
 lib/go/src/cmd/go/testdata/script/mod_get_fallback.txt
+lib/go/src/cmd/go/testdata/script/mod_get_fips140_issue73649.txt
 lib/go/src/cmd/go/testdata/script/mod_get_fossil.txt
 lib/go/src/cmd/go/testdata/script/mod_get_future.txt
 lib/go/src/cmd/go/testdata/script/mod_get_go_file.txt
@@ -2724,6 +2734,7 @@ lib/go/src/cmd/go/testdata/script/mod_skip_write.txt
 lib/go/src/cmd/go/testdata/script/mod_stale.txt
 lib/go/src/cmd/go/testdata/script/mod_std_vendor.txt
 lib/go/src/cmd/go/testdata/script/mod_string_alias.txt
+lib/go/src/cmd/go/testdata/script/mod_sum_absent.txt
 lib/go/src/cmd/go/testdata/script/mod_sum_ambiguous.txt
 lib/go/src/cmd/go/testdata/script/mod_sum_issue56222.txt
 lib/go/src/cmd/go/testdata/script/mod_sum_lookup.txt
@@ -2837,6 +2848,8 @@ lib/go/src/cmd/go/testdata/script/test_build_failure.txt
 lib/go/src/cmd/go/testdata/script/test_buildinfo_godebug_issue68053.txt
 lib/go/src/cmd/go/testdata/script/test_buildinfo.txt
 lib/go/src/cmd/go/testdata/script/test_buildvcs.txt
+lib/go/src/cmd/go/testdata/script/test_cache_coverpkg_bug.txt
+lib/go/src/cmd/go/testdata/script/test_cache_coverpkg_no_profile.txt
 lib/go/src/cmd/go/testdata/script/test_cache_inputs.txt
 lib/go/src/cmd/go/testdata/script/test_chatty_fail.txt
 lib/go/src/cmd/go/testdata/script/test_chatty_parallel_fail.txt
@@ -4903,6 +4916,8 @@ lib/go/src/crypto/internal/fips140/check/checktest/asm.s
 lib/go/src/crypto/internal/fips140/check/checktest/test.go
 lib/go/src/crypto/internal/fips140/drbg/cast.go
 lib/go/src/crypto/internal/fips140/drbg/ctrdrbg.go
+lib/go/src/crypto/internal/fips140/drbg/entropy_fips140.go
+lib/go/src/crypto/internal/fips140/drbg/entropy_wasm.go
 lib/go/src/crypto/internal/fips140/drbg/rand_test.go
 lib/go/src/crypto/internal/fips140/drbg/rand.go
 lib/go/src/crypto/internal/fips140/ecdh/cast.go
@@ -4951,6 +4966,7 @@ lib/go/src/crypto/internal/fips140/mldsa/field.go
 lib/go/src/crypto/internal/fips140/mldsa/mldsa_test.go
 lib/go/src/crypto/internal/fips140/mldsa/mldsa.go
 lib/go/src/crypto/internal/fips140/mldsa/semiexpanded.go
+lib/go/src/crypto/internal/fips140/mlkem/cast_test.go
 lib/go/src/crypto/internal/fips140/mlkem/cast.go
 lib/go/src/crypto/internal/fips140/mlkem/field_test.go
 lib/go/src/crypto/internal/fips140/mlkem/field.go
@@ -5954,6 +5970,7 @@ lib/go/src/debug/elf/testdata/gcc-amd64-openbsd-debug-with-rela.obj
 lib/go/src/debug/elf/testdata/gcc-riscv64-linux-exec
 lib/go/src/debug/elf/testdata/go-relocation-test-clang-arm.obj
 lib/go/src/debug/elf/testdata/go-relocation-test-clang-x86.obj
+lib/go/src/debug/elf/testdata/go-relocation-test-gcc133-ppc.obj
 lib/go/src/debug/elf/testdata/go-relocation-test-gcc424-x86-64.obj
 lib/go/src/debug/elf/testdata/go-relocation-test-gcc441-x86-64.obj
 lib/go/src/debug/elf/testdata/go-relocation-test-gcc441-x86.obj
@@ -7225,6 +7242,7 @@ lib/go/src/internal/cpu/cpu_s390x.s
 lib/go/src/internal/cpu/cpu_test.go
 lib/go/src/internal/cpu/cpu_wasm.go
 lib/go/src/internal/cpu/cpu_x86_darwin.go
+lib/go/src/internal/cpu/cpu_x86_netbsd.go
 lib/go/src/internal/cpu/cpu_x86_other.go
 lib/go/src/internal/cpu/cpu_x86_test.go
 lib/go/src/internal/cpu/cpu_x86.go
@@ -8335,6 +8353,7 @@ lib/go/src/internal/types/testdata/fixedbugs/issue76366.go
 lib/go/src/internal/types/testdata/fixedbugs/issue76383.go
 lib/go/src/internal/types/testdata/fixedbugs/issue76384.go
 lib/go/src/internal/types/testdata/fixedbugs/issue76478.go
+lib/go/src/internal/types/testdata/fixedbugs/issue78163.go
 lib/go/src/internal/types/testdata/spec/assignability.go
 lib/go/src/internal/types/testdata/spec/comparable.go
 lib/go/src/internal/types/testdata/spec/comparable1.19.go
@@ -14100,11 +14119,17 @@ lib/go/test/fixedbugs/issue77779.go
 lib/go/test/fixedbugs/issue77815.go
 lib/go/test/fixedbugs/issue77919.go
 lib/go/test/fixedbugs/issue7794.go
+lib/go/test/fixedbugs/issue78404.go
 lib/go/test/fixedbugs/issue7863.go
+lib/go/test/fixedbugs/issue78641.go
 lib/go/test/fixedbugs/issue7867.go
 lib/go/test/fixedbugs/issue7884.go
+lib/go/test/fixedbugs/issue79182.go
+lib/go/test/fixedbugs/issue79186.go
 lib/go/test/fixedbugs/issue7921.go
 lib/go/test/fixedbugs/issue7944.go
+lib/go/test/fixedbugs/issue79874.go
+lib/go/test/fixedbugs/issue79909.go
 lib/go/test/fixedbugs/issue7995.go
 lib/go/test/fixedbugs/issue7995b.dir/x1.go
 lib/go/test/fixedbugs/issue7995b.dir/x2.go
@@ -14112,9 +14137,13 @@ lib/go/test/fixedbugs/issue7995b.go
 lib/go/test/fixedbugs/issue7996.go
 lib/go/test/fixedbugs/issue7997.go
 lib/go/test/fixedbugs/issue7998.go
+lib/go/test/fixedbugs/issue80004.go
 lib/go/test/fixedbugs/issue8004.go
+lib/go/test/fixedbugs/issue80097.go
 lib/go/test/fixedbugs/issue8011.go
+lib/go/test/fixedbugs/issue80127.go
 lib/go/test/fixedbugs/issue8017.go
+lib/go/test/fixedbugs/issue80188.go
 lib/go/test/fixedbugs/issue8028.go
 lib/go/test/fixedbugs/issue8036.go
 lib/go/test/fixedbugs/issue8039.go
@@ -14122,6 +14151,10 @@ lib/go/test/fixedbugs/issue8042.go
 lib/go/test/fixedbugs/issue8047.go
 lib/go/test/fixedbugs/issue8047b.go
 lib/go/test/fixedbugs/issue8048.go
+lib/go/test/fixedbugs/issue80517_1.go
+lib/go/test/fixedbugs/issue80517_2.go
+lib/go/test/fixedbugs/issue80517_3.go
+lib/go/test/fixedbugs/issue80577.go
 lib/go/test/fixedbugs/issue8060.dir/a.go
 lib/go/test/fixedbugs/issue8060.dir/b.go
 lib/go/test/fixedbugs/issue8060.go
@@ -14129,11 +14162,14 @@ lib/go/test/fixedbugs/issue8073.go
 lib/go/test/fixedbugs/issue8074.go
 lib/go/test/fixedbugs/issue8076.go
 lib/go/test/fixedbugs/issue8079.go
+lib/go/test/fixedbugs/issue81240.go
+lib/go/test/fixedbugs/issue81242.go
 lib/go/test/fixedbugs/issue8132.go
 lib/go/test/fixedbugs/issue8139.go
 lib/go/test/fixedbugs/issue8154.go
 lib/go/test/fixedbugs/issue8155.go
 lib/go/test/fixedbugs/issue8158.go
+lib/go/test/fixedbugs/issue81612.go
 lib/go/test/fixedbugs/issue8183.go
 lib/go/test/fixedbugs/issue8280.dir/a.go
 lib/go/test/fixedbugs/issue8280.dir/b.go
@@ -15011,7 +15047,6 @@ lib/go/test/writebarrier.go
 lib/go/test/zerodivide.go
 lib/go/test/zerosize.go
 lib/go/VERSION
-@dir bin
 @dir lib/go/api
 @dir lib/go/bin
 @dir lib/go/doc/initial/6-stdlib/99-minor
